@@ -1,0 +1,20 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Example data
+data = {
+    'Diet': [1, 1, 2, 2, 3, 3],
+    'weight': [5.5, 6.7, 8.9, 7.8, 5.4, 6.9],
+}
+df = pd.DataFrame(data)
+
+# Filter data for Diet-1
+diet_1_data = df[df['Diet'] == 1]
+
+# Histogram
+plt.figure(figsize=(10, 6))
+plt.hist(diet_1_data['weight'], bins=10, color='c', edgecolor='k', alpha=0.7)
+plt.title('Histogram of Weight for Diet-1 Category')
+plt.xlabel('Weight')
+plt.ylabel('Frequency')
+plt.show()
