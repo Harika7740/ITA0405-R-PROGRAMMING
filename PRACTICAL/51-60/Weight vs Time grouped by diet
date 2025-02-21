@@ -1,0 +1,13 @@
+import seaborn as sns
+
+# Adding Time column for the example
+df['Time'] = [1, 2, 1, 2, 1, 2]
+
+# Scatter plot
+plt.figure(figsize=(10, 6))
+sns.scatterplot(x='Time', y='weight', hue='Diet', style='Diet', s=100, data=df)
+plt.title('Scatter Plot of Weight vs Time Grouped by Diet')
+plt.xlabel('Time')
+plt.ylabel('Weight')
+plt.legend(title='Diet')
+plt.show()
