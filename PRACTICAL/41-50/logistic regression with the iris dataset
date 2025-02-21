@@ -1,0 +1,26 @@
+# Load necessary libraries
+library(caret)
+library(e1071)
+library(MASS)
+
+# Load the iris dataset
+data(iris)
+
+# Split the data into training (80%) and test (20%) sets
+set.seed(123)
+trainIndex <- createDataPartition(iris$Species, p = 0.8, list = FALSE)
+iris_train <- iris[trainIndex, ]
+iris_test <- iris[-trainIndex, ]
+
+# Create logistic regression model using Petal.Width and Petal.Length as features
+log_reg <- multinom(Species ~ Petal.Width + Petal.Length, data = iris_train)
+
+# Predict the probabilities on the test data
+pred_prob <- predict(log_reg, iris_test, type = "probs")
+
+# Predict the classes on the test data
+pred_class <- predict(log_reg, iris_test)
+
+# Create confusion matrix
+confusion <- confusionMatrix(pred_class, iris_test$Species)
+print(confusion)
