@@ -1,0 +1,10 @@
+# Define the vector
+values <- c(90, 50, 70, 80, 70, 60, 20, 30, 80, 90, 20)
+
+# 2nd highest value
+second_highest <- sort(values, decreasing = TRUE)[2]
+print(paste("2nd Highest Value:", second_highest))
+
+# 3rd lowest value
+third_lowest <- sort(values)[3]
+print(paste("3rd Lowest Value:", third_lowest))
