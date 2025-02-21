@@ -1,0 +1,18 @@
+# Define the vector
+values <- c(90, 50, 70, 80, 70, 60, 20, 30, 80, 90, 20)
+
+# Compute mean
+mean_val <- mean(values)
+print(paste("Mean:", mean_val))
+
+# Compute median
+median_val <- median(values)
+print(paste("Median:", median_val))
+
+# Compute mode (custom function as R does not have a built-in mode function)
+mode_val <- function(v) {
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+mode_result <- mode_val(values)
+print(paste("Mode:", mode_result))
