@@ -1,0 +1,3 @@
+# Apply linear regression on Ozone and Solar.R
+model <- lm(Ozone ~ Solar.R, data = airquality)
+summary(model)
